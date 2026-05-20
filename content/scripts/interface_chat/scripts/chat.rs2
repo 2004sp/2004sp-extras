@@ -620,6 +620,42 @@ switch_component (last_com) {
     case default : return(null);
 }
 
+[proc,multiobj2_fletch](string $title, namedobj $obj1, int $x1, int $y1, int $scale1, string $string1, int $sx1, int $sy1, namedobj $obj2, int $x2, int $y2, int $scale2, string $string2, int $sx2, int $sy2)(namedobj, int)
+// reset any positions out of place
+if_setposition(multiobj2_fletch:obj1, $x1, $y1);
+if_setposition(multiobj2_fletch:objtext1, $sx1, $sy1);
+if_setposition(multiobj2_fletch:obj2, $x2, $y2);
+if_setposition(multiobj2_fletch:objtext2, $sx2, $sy2);
+if_setposition(multiobj2_fletch:obj1_makex, $sx1, 13);
+if_setposition(multiobj2_fletch:obj2_makex, $sx2, 13);
+
+if_settext(multiobj2_fletch:title, $title);
+if_setobject(multiobj2_fletch:obj1, $obj1, $scale1);
+if_settext(multiobj2_fletch:objtext1, $string1);
+if_setobject(multiobj2_fletch:obj2, $obj2, $scale2);
+if_settext(multiobj2_fletch:objtext2, $string2);
+if_openchat(multiobj2_fletch);
+
+if_addresumebutton(multiobj2_fletch:obj1);
+if_addresumebutton(multiobj2_fletch:objtext1);
+if_addresumebutton(multiobj2_fletch:obj1_makex);
+if_addresumebutton(multiobj2_fletch:obj2);
+if_addresumebutton(multiobj2_fletch:objtext2);
+if_addresumebutton(multiobj2_fletch:obj2_makex);
+p_pausebutton;
+
+switch_component (last_com) {
+    case multiobj2_fletch:obj1 : if_close; return($obj1, 1);
+    case multiobj2_fletch:objtext1 : if_close; return($obj1, 1);
+    case multiobj2_fletch:obj1_makex : return($obj1, -1);
+    case multiobj2_fletch:obj2 : if_close; return($obj2, 1);
+    case multiobj2_fletch:objtext2 : if_close; return($obj2, 1);
+    case multiobj2_fletch:obj2_makex : return($obj2, -1);
+    case default :
+        if_close;
+        return(null, 0);
+}
+
 [proc,multiobj3](string $title, namedobj $obj1, int $x1, int $y1, int $scale1, string $string1, int $sx1, int $sy1, namedobj $obj2, int $x2, int $y2, int $scale2, string $string2, int $sx2, int $sy2, namedobj $obj3, int $x3, int $y3, int $scale3, string $string3, int $sx3, int $sy3)(namedobj)
 // reset any positions out of place
 if_setposition(multiobj3:com_2, $x1, $y1);
@@ -664,16 +700,13 @@ if_openchat(multiobj3_close);
 if_addresumebutton(multiobj3_close:com_1);
 if_addresumebutton(multiobj3_close:com_2);
 if_addresumebutton(multiobj3_close:com_3);
-if_addresumebutton(multiobj3_close:com_8);
 p_pausebutton;
 
 switch_component (last_com) {
     case multiobj3_close:com_1 : return($obj1);
     case multiobj3_close:com_2 : return($obj2);
     case multiobj3_close:com_3 : return($obj3);
-    case default :
-        if_close;
-        return(null);
+    case default : return(null);
 }
 
 [if_button,multiobj3_fletch:com_8] if_close;
@@ -690,15 +723,25 @@ if_openchat(multiobj3_fletch);
 if_addresumebutton(multiobj3_fletch:com_1);
 if_addresumebutton(multiobj3_fletch:com_2);
 if_addresumebutton(multiobj3_fletch:com_3);
+if_addresumebutton(multiobj3_fletch:com_4);
+if_addresumebutton(multiobj3_fletch:com_5);
+if_addresumebutton(multiobj3_fletch:com_6);
 if_addresumebutton(multiobj3_fletch:com_8);
 if_addresumebutton(multiobj3_fletch:com_9);
+if_addresumebutton(multiobj3_fletch:com_10);
+if_addresumebutton(multiobj3_fletch:com_11);
 p_pausebutton;
 
 switch_component (last_com) {
     case multiobj3_fletch:com_1 : if_close; return($obj1, 1);
+    case multiobj3_fletch:com_4 : if_close; return($obj1, 1);
     case multiobj3_fletch:com_9 : return($obj1, -1);
     case multiobj3_fletch:com_2 : if_close; return($obj2, 1);
+    case multiobj3_fletch:com_5 : if_close; return($obj2, 1);
+    case multiobj3_fletch:com_10 : return($obj2, -1);
     case multiobj3_fletch:com_3 : if_close; return($obj3, 1);
+    case multiobj3_fletch:com_6 : if_close; return($obj3, 1);
+    case multiobj3_fletch:com_11 : return($obj3, -1);
     case default :
         if_close;
         return(null, 0);
