@@ -66,6 +66,12 @@ queue(macro_event_login, 0, 0);
 if(npc_find(0_51_52_19_58, callum, 3, 0) = false) {
     npc_add(0_51_52_19_58, callum, 2000000);
 }
+// On server startup (keeper absent): spawn the keeper and the CE together.
+// Subsequent logins find the keeper alive and do nothing, preventing login-based farming.
+if(npc_find(0_49_56_1_57, chaos_elemental_keeper, 5, 0) = false) {
+    npc_add(0_49_56_1_57, chaos_elemental_keeper, ^max_32bit_int);
+    npc_add(0_49_56_1_57, chaos_elemental, ^max_32bit_int);
+}
 
 if(inzone(movecoord(^grandtree_jail_coord, 0, 0, -2), movecoord(^grandtree_jail_coord, 3, 0, 2), coord) = true) {
     ~grandtree_spawn_charlie;

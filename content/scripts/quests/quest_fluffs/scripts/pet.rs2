@@ -108,6 +108,7 @@ switch_int (getbit_range(%cat_growth, 5, 10)) {
 
 [opheld5,kbd_pet_item] ~boss_pet_drop(king_dragon_pet);
 [opheld5,kq_pet_item] ~boss_pet_drop(kalphite_queen_pet);
+[opheld5,chaos_elemental_pet_item] ~boss_pet_drop(chaos_elemental_pet);
 
 
 [opnpcu,_petcat]
@@ -174,6 +175,11 @@ switch_npc (npc_type) {
         anim(human_pickupfloor, 0);
         p_delay(2);
         sound_synth(kalthite_lightning, 0, 0);
+    case chaos_elemental_pet :
+        mes("You stroke your miniature chaos elemental.");
+        anim(human_pickupfloor, 0);
+        p_delay(2);
+        sound_synth(dragon_attack, 0, 0);
     case default :
         if(getbit_range(%cat_growth, 5, 10) = 28) {
             %cat_growth = setbit_range_toint(%cat_growth, 23, 5, 10);
@@ -201,7 +207,7 @@ if ($choice = 2) {
 if_close;
 say("Shoo cat!");
 switch_npc (npc_type) {
-    case king_dragon_pet, kalphite_queen_pet :
+    case king_dragon_pet, kalphite_queen_pet, chaos_elemental_pet :
     case default : npc_say("Meeeooow!");
 }
 npc_setmode(playerescape);
