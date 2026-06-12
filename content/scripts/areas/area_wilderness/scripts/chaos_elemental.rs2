@@ -12,6 +12,10 @@ queue(spawn_chaos_elemental, 500, 0);
 if (random(5000) = 0) {
     queue(chaos_elemental_pet_award, 0, 0);
 }
+// Dragon pickaxe: 1/1000
+if (random(1000) = 0) {
+    obj_add(npc_coord, dragon_pickaxe, 1, ^lootdrop_duration);
+}
 // Drop table - similar to KBD without bones/dragonhide, adds dragon pickaxe
 ~trail_hardcluedrop(128, npc_coord);
 
