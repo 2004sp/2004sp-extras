@@ -1,32 +1,28 @@
+[opheld3,attack_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,agility_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,cooking_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,crafting_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,defence_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,fishing_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,firemaking_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,fletch_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,herblore_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,hitpoints_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,magic_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,mining_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,prayer_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,ranging_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,runecraft_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,smithing_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,strength_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,thieve_skill_cape] @play_skillcape_emote(last_item);
+[opheld3,woodcutting_skill_cape] @play_skillcape_emote(last_item);
+
 [inv_button3,wornitems:wear]
-if_close;
-if (p_finduid(uid) = true) {
-    p_clearpendingaction;
-    @play_skillcape_emote(last_item);
-}
+return;
 
 [label,play_skillcape_emote](obj $cape)
-switch_obj ($cape) {
-    case attack_skill_cape : @perform_skillcape_emote(skillcape_attack, skillcape_gfx_attack);
-    case agility_skill_cape : @perform_skillcape_emote(skillcape_agility, skillcape_gfx_agility);
-    case cooking_skill_cape : @perform_skillcape_emote(skillcape_cooking, skillcape_gfx_cooking);
-    case crafting_skill_cape : @perform_skillcape_emote(skillcape_crafting, skillcape_gfx_crafting);
-    case defence_skill_cape : @perform_skillcape_emote(skillcape_defence, skillcape_gfx_defence);
-    case fishing_skill_cape : @perform_skillcape_emote(skillcape_fishing, skillcape_gfx_fishing);
-    case firemaking_skill_cape : @perform_skillcape_emote(skillcape_firemaking, skillcape_gfx_firemaking);
-    case fletch_skill_cape : @perform_skillcape_emote(skillcape_fletching, skillcape_gfx_fletching);
-    case herblore_skill_cape : @perform_skillcape_emote(skillcape_herblore, skillcape_gfx_herblore);
-    case hitpoints_skill_cape : @perform_skillcape_emote2(skillcape_hitpoints, skillcape_gfx_hitpoints_a, skillcape_gfx_hitpoints_b);
-    case magic_skill_cape : @perform_skillcape_emote(skillcape_magic, skillcape_gfx_magic);
-    case mining_skill_cape : @perform_skillcape_emote(skillcape_mining, skillcape_gfx_mining);
-    case prayer_skill_cape : @perform_skillcape_emote(skillcape_prayer, skillcape_gfx_prayer);
-    case ranging_skill_cape : @perform_skillcape_emote(skillcape_ranged, skillcape_gfx_ranged);
-    case runecraft_skill_cape : @perform_skillcape_emote(skillcape_runecraft, skillcape_gfx_runecraft);
-    case smithing_skill_cape : @perform_skillcape_emote(skillcape_smithing, skillcape_gfx_smithing);
-    case strength_skill_cape : @perform_skillcape_emote(skillcape_strength, skillcape_gfx_strength);
-    case thieve_skill_cape : @perform_skillcape_emote(skillcape_thieving, skillcape_gfx_thieving);
-    case woodcutting_skill_cape : @perform_skillcape_emote(skillcape_woodcutting, skillcape_gfx_woodcutting);
-}
+return;
 
 [label,perform_skillcape_emote](seq $anim, spotanim $gfx)
 anim($anim, 0);
