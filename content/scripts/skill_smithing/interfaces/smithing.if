@@ -1396,7 +1396,7 @@ script1op1=pushvar,modified_smith
 script1=gt,4
 center=yes
 font=p12
-text=Studs
+text=Steel nails
 activecolour=0xFFFFFF
 
 [com_140]
