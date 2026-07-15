@@ -1,0 +1,15 @@
+[shop]
+type=inv
+protect=no
+
+[shop_buy]
+type=int
+protect=no
+
+[shop_sell]
+type=int
+protect=no
+
+[shop_haggle]
+type=int
+protect=no
